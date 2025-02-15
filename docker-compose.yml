@@ -1,0 +1,48 @@
+version: '3.12'
+
+services:
+  postgres:
+    image: postgres
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      DB_NAME: mydatabase
+      DB_USER: myuser
+      DB_PASS: mypassword
+      DB_HOST: postgres
+      DB_PORT: 5432
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
+volumes:
+  postgres_data:
+
+networks:
+  mynetwork:

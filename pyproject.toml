@@ -1,0 +1,19 @@
+[project]
+name = "sql-bootcamp"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "cmpbj",email = "magnocarlos3232@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "streamlit (>=1.42.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
