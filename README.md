@@ -1,4 +1,3 @@
-```markdown
 # SQL Bootcamp Challenge App
 
 This project is a Streamlit-based web application that showcases solutions to SQL challenges from the "Jornada de Dados" SQL Bootcamp. The app connects to a PostgreSQL database (running in a Docker container) to fetch and display query results for different questions and challenges.
